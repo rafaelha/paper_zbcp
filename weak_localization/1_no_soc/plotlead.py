@@ -49,10 +49,10 @@ jx[3,0] = -Bx**3 / ggap**2
 #######################################
 ############### parameters ############
 #######################################
-delta = 0.0001 #0.00018*0.5 # SC order parameter (real)
+delta = 0.03 #0.00018*0.5 # SC order parameter (real)
 phi = np.pi
 mu = (C0 - C1 * M0 / M1) #- 7e-3# tune chem pot to Dirac nodes
-W = 0.046 # disorder strength
+W = 0.05 # disorder strength
 Lx = 15
 Ly = 300
 Lz = 15
@@ -285,7 +285,7 @@ def plotLead(lead0, xlim=(0,np.pi/2), ylim=(-20,20), res=100, rand=True):
     plt.ylabel("Energy in meV")
     plt.title('$L_x=$'+str(Lx)+', $L_y=$'+str(Ly)+', $L_z=$'+str(Lz)+', B='+str(Bx*1e3))
     plt.tight_layout()
-    plt.savefig(next("C:/Users/Rafael/Desktop/MJ/transport/FT/figs/lead%s.pdf"))
+    plt.savefig(next("lead%s.pdf"))
 
     return energies
 def save(filename, duration, en, N, Ree, Reh, G):
@@ -351,10 +351,9 @@ def start(filename, rg):
     save(filename, duration, en, N, Ree, Reh, G)
 
 if __name__ == '__main__':
-    seed = int(sys.argv[1])
-    np.random.seed(seed)
-    rg = np.sort(np.block([np.linspace(0,130e-6,10)]))
-    loop(rg)
+    rg = np.sort(np.block([np.linspace(0,250e-6,30)]))
+    sys, lead0, lead1 = build_sys()
+    plotLead(lead0)
     """
     start_time = time.time()
     sys, lead0, lead1 = build_sys()
