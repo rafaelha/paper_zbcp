@@ -1,0 +1,8 @@
+slurmstepd: error: *** JOB 78980 ON node24 CANCELLED AT 2019-07-31T16:04:13 ***
+slurmstepd: error: *** JOB 78979 ON node24 CANCELLED AT 2019-07-31T16:04:13 ***
+slurmstepd: error: *** JOB 78981 ON node24 CANCELLED AT 2019-07-31T16:04:13 ***
+slurmstepd: error: *** JOB 78983 ON node24 CANCELLED AT 2019-07-31T16:04:13 ***
+slurmstepd: error: *** JOB 78982 ON node24 CANCELLED AT 2019-07-31T16:04:13 ***
+slurmstepd: error: *** JOB 78978 ON node24 CANCELLED AT 2019-07-31T16:04:13 ***
+slurmstepd: error: *** JOB 78985 ON node24 CANCELLED AT 2019-07-31T16:04:13 ***
+slurmstepd: error: *** JOB 78984 ON node24 CANCELLED AT 2019-07-31T16:04:13 ***

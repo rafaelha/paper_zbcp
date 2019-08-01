@@ -1,0 +1,7 @@
+slurmstepd: error: *** JOB 78971 ON node04 CANCELLED AT 2019-07-31T16:04:13 ***
+slurmstepd: error: *** JOB 78970 ON node23 CANCELLED AT 2019-07-31T16:04:13 ***
+slurmstepd: error: *** JOB 78976 ON node23 CANCELLED AT 2019-07-31T16:04:13 ***
+slurmstepd: error: *** JOB 78977 ON node23 CANCELLED AT 2019-07-31T16:04:13 ***
+slurmstepd: error: *** JOB 78974 ON node20 CANCELLED AT 2019-07-31T16:04:13 ***
+slurmstepd: error: *** JOB 78973 ON node20 CANCELLED AT 2019-07-31T16:04:13 ***
+slurmstepd: error: *** JOB 78972 ON node02 CANCELLED AT 2019-07-31T16:04:13 ***
