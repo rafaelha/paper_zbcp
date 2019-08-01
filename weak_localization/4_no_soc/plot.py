@@ -43,13 +43,14 @@ for f in files:
             duration += pickle.load(reader)
             mu = pickle.load(reader)
 
-            en += pickle.load(reader)
+            enr = pickle.load(reader)
+            en += enr
 
             N += pickle.load(reader)
             Ree += pickle.load(reader)
             Reh += pickle.load(reader)
-            G += pickle.load(reader)
-
+            Gr = pickle.load(reader)
+            G += Gr
             Bx = pickle.load(reader)
             gap = pickle.load(reader)
             g = pickle.load(reader)
@@ -57,6 +58,16 @@ for f in files:
             B1 = pickle.load(reader)
             seed = pickle.load(reader)
 
+
+            plt.figure()
+            plt.plot(en, G, label='G')
+            plt.xlabel('Bias in $\mu$eV')
+            plt.ylabel('Conductance <G> ('+str(count)+' realizations)')
+            plt.title('$L_x=$'+str(Lx)+', $L_y=$'+str(Ly)+', $L_z=$'+str(Lz)\
+                            +', W='+str(round(W*1000))+'meV, $\Delta=$'+str(np.round(delta*1e6,1))+'$\mu$eV, $\mu$='+str(mu*1000)+'meV, $B_1$='+str(B1)+', t='\
+                            +str(np.round(duration))+'s')
+            plt.savefig('fig/fig_avg_cond_'+str(count)+'.pdf')
+            plt.close()
             count += 1
     except EOFError:
         reader.close()
