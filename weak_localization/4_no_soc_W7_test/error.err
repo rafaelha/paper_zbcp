@@ -1,0 +1,4 @@
+slurmstepd: error: *** JOB 79091 ON node44 CANCELLED AT 2019-08-01T13:15:00 ***
+slurmstepd: error: *** JOB 79094 ON node44 CANCELLED AT 2019-08-01T13:15:00 ***
+slurmstepd: error: *** JOB 79092 ON node44 CANCELLED AT 2019-08-01T13:15:00 ***
+slurmstepd: error: *** JOB 79093 ON node44 CANCELLED AT 2019-08-01T13:15:00 ***
