@@ -60,7 +60,7 @@ for f in files:
 
 
             plt.figure()
-            plt.plot(en, G, label='G')
+            plt.plot(enr, Gr, label='G')
             plt.xlabel('Bias in $\mu$eV')
             plt.ylabel('Conductance <G> ('+str(count)+' realizations)')
             plt.title('$L_x=$'+str(Lx)+', $L_y=$'+str(Ly)+', $L_z=$'+str(Lz)\
