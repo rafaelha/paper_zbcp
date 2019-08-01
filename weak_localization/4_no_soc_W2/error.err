@@ -1,0 +1,14 @@
+slurmstepd: error: *** JOB 79061 ON node47 CANCELLED AT 2019-08-01T12:12:00 ***
+slurmstepd: error: *** JOB 79062 ON node47 CANCELLED AT 2019-08-01T12:14:41 ***
+slurmstepd: error: *** JOB 79063 ON node47 CANCELLED AT 2019-08-01T12:14:42 ***
+slurmstepd: error: *** JOB 79064 ON node47 CANCELLED AT 2019-08-01T12:14:44 ***
+slurmstepd: error: *** JOB 79065 ON node47 CANCELLED AT 2019-08-01T12:14:45 ***
+slurmstepd: error: *** JOB 79066 ON node43 CANCELLED AT 2019-08-01T12:14:46 ***
+slurmstepd: error: *** JOB 79067 ON node43 CANCELLED AT 2019-08-01T12:14:47 ***
+slurmstepd: error: *** JOB 79068 ON node43 CANCELLED AT 2019-08-01T12:14:48 ***
+slurmstepd: error: *** JOB 79069 ON node45 CANCELLED AT 2019-08-01T12:14:49 ***
+slurmstepd: error: *** JOB 79070 ON node45 CANCELLED AT 2019-08-01T12:14:50 ***
+slurmstepd: error: *** JOB 79071 ON node45 CANCELLED AT 2019-08-01T12:14:52 ***
+slurmstepd: error: *** JOB 79072 ON node46 CANCELLED AT 2019-08-01T12:14:53 ***
+slurmstepd: error: *** JOB 79073 ON node46 CANCELLED AT 2019-08-01T12:14:54 ***
+slurmstepd: error: *** JOB 79045 ON node46 CANCELLED AT 2019-08-01T12:14:57 ***
