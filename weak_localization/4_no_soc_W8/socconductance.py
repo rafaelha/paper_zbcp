@@ -353,7 +353,7 @@ def start(filename, rg):
 if __name__ == '__main__':
     seed = int(sys.argv[1])
     np.random.seed(seed)
-    rg = np.sort(np.block([np.linspace(-130e-6,130e-6,90)]))
+    rg = np.sort(np.block([np.linspace(-200e-6,200e-6,90)]))
     loop(rg)
     """
     start_time = time.time()
