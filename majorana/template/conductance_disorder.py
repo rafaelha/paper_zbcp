@@ -54,10 +54,10 @@ kz=Q*0.0
 delta = 100e-6#150*90e-6 # SC order parameter (real)
 phi = np.pi
 mu = (C0 - C1 * M0 / M1) #- 7e-3# tune chem pot to Dirac nodes
-W = 0.04 # disorder strength
+W = 0.084 # disorder strength
 m=0#0.006
 Lx =15
-Ly = 300
+Ly = 30
 
 xdir = 0 #set direction of transport to one
 ydir = 1
