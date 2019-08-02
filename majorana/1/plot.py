@@ -59,6 +59,7 @@ for f in files:
             seed = pickle.load(reader)
 
 
+            """
             plt.figure()
             plt.plot(enr, Gr, label='G')
             plt.xlabel('Bias in $\mu$eV')
@@ -68,6 +69,7 @@ for f in files:
                             +str(np.round(duration))+'s')
             plt.savefig('fig/fig_avg_cond_'+str(count)+'.pdf')
             plt.close()
+            """
             count += 1
     except EOFError:
         reader.close()
