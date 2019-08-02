@@ -36,17 +36,17 @@ Q = sqrt(-M0/M1)
 
 # Magnetic field
 Bx = 0.035 *0
-gap = 0.035
+ggap = 0.035
 g = 1
-mu_local =-28e-3  # local chemical potential to push magnetic gap to fermi level
+mu_local =-28e-3  # local chemical potential to push magnetic ggap to fermi level
 jx = np.zeros((4,4))
 B1=0
-#jx[0,0] = Bx**2 / gap
-jx[0,3] = - Bx**3 / gap**2
+#jx[0,0] = Bx**2 / ggap
+jx[0,3] = - Bx**3 / ggap**2
 jx[1,2] = -0.5 * g * Bx
 jx[2,1] = -0.5 * g * Bx
-jx[3,0] = -Bx**3 / gap**2
-#jx[3,3] = Bx **2 / gap
+jx[3,0] = -Bx**3 / ggap**2
+#jx[3,3] = Bx **2 / ggap
 #######################################
 ############### parameters ############
 #######################################
@@ -242,7 +242,7 @@ def save(filename, duration, en, N, Ree, Reh, G):
     pickle.dump(Reh, f1)
     pickle.dump(G, f1)
     pickle.dump(Bx, f1)
-    pickle.dump(gap, f1)
+    pickle.dump(ggap, f1)
     pickle.dump(g, f1)
     pickle.dump(mu_local, f1)
     pickle.dump(B1, f1)
@@ -268,7 +268,7 @@ def sweep_disorder(max=50e-3, steps=10, energy=0.03e-3):
     filename = 'disorder/' + str(dt.datetime.now()).replace(':','_').replace('.','_').replace(' ','_')
     save(filename, en[0], ww, N, Ree, Reh, G)
 def loop(rg):
-    filename = str(dt.datetime.now()).replace(':','_').replace('.','_').replace(' ','_')
+    filename = str(dt.datetime.now()).replace(':','_').replace('.','_').replace(' ','_')+'.pickle'
     for i in np.arange(10):
         start(filename, rg)
 
