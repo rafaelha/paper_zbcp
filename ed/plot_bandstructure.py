@@ -33,7 +33,7 @@ reader.close()
 spos = pos*0;
 sspectrum = spectrum*0;
 for i in np.arange(len(kz)-1):
-    ind = np.argmax(np.abs(vecs[:,:,i].T.conj()@vecs[:,:,i+1]),1);
+    ind = np.argmax(np.abs(vecs[:,:,i].T.conj()@vecs[:,:,i+1]),0);
     sspectrum[:,i+1] = spectrum[ind,i+1];
     spos[:,i+1] = pos[ind,i+1];
     
@@ -70,5 +70,5 @@ plt.xlabel('$k_z a$')
 plt.ylabel('$E$ [meV]')
 plt.xlim((-np.max(np.abs(kz))*az, np.max(np.abs(kz))*az))
 
-plt.savefig('new_code_bandstructure.pdf')
+plt.savefig('new_code_bandstructure2.pdf')
 plt.close()
