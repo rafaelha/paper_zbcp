@@ -1,7 +1,7 @@
 import matplotlib as mpl
 from matplotlib.collections import LineCollection
 from matplotlib.colors import ListedColormap, BoundaryNorm
-#mpl.use('Agg')
+mpl.use('Agg')
 import numpy as np
 import time
 from numpy import sin, cos 
@@ -240,8 +240,8 @@ if __name__ == '__main__':
 
     start_time = time.time()
 
-    kz = np.linspace(-np.pi/2/2/az, 0/az,10) 
-    k = 200 #number of energies to calculate from sparse diag
+    kz = np.linspace(-np.pi/2/2/az, 0/az, 100) 
+    k = 150 #number of energies to calculate from sparse diag
     spectrum, pos, vecs = diagHk(kz, delta=delta, sparse=True, k=k)    
     plotHk(kz, spectrum, pos, ylim=(-20,20))
     plt.title('$L_x=$'+str(Lx)+', $L_y=$'+str(Ly)+', $\Delta$='+str(round(delta*1e3,2))\
