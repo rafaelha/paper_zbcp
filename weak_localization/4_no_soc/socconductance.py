@@ -330,7 +330,7 @@ def sweep_disorder(max=50e-3, steps=10, energy=0.03e-3):
     save(filename, en[0], ww, N, Ree, Reh, G)
 def loop(rg):
     filename = str(dt.datetime.now()).replace(':','_').replace('.','_').replace(' ','_')+'.pickle'
-    for i in np.arange(10):
+    for i in np.arange(100):
         start(filename, rg)
 def next(name):
     i = 0
@@ -351,7 +351,7 @@ def start(filename, rg):
     save(filename, duration, en, N, Ree, Reh, G)
 
 if __name__ == '__main__':
-    seed = int(sys.argv[1])
+    seed = int(sys.argv[1]) + 100
     np.random.seed(seed)
     rg = np.sort(np.block([np.linspace(-200e-6,200e-6,90)]))
     loop(rg)

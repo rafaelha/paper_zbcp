@@ -240,8 +240,8 @@ if __name__ == '__main__':
 
     start_time = time.time()
 
-    kz = np.linspace(-np.pi/2/2/az, 0/az, 100) 
-    k = 150 #number of energies to calculate from sparse diag
+    kz = np.linspace(-np.pi/2/2/az, 0/az, 600) 
+    k = 140 #number of energies to calculate from sparse diag
     spectrum, pos, vecs = diagHk(kz, delta=delta, sparse=True, k=k)    
     plotHk(kz, spectrum, pos, ylim=(-20,20))
     plt.title('$L_x=$'+str(Lx)+', $L_y=$'+str(Ly)+', $\Delta$='+str(round(delta*1e3,2))\
@@ -252,7 +252,7 @@ if __name__ == '__main__':
     plt.ylim((-10,10))
     #savefig()
 
-    f1 = open('plotdata.pickle', 'ab')
+    f1 = open('plotdata2.pickle', 'ab')
     pickle.dump(Lx, f1)
     pickle.dump(Ly, f1)
     pickle.dump(delta, f1)
@@ -261,6 +261,7 @@ if __name__ == '__main__':
     pickle.dump(kz, f1)
     pickle.dump(spectrum, f1)
     pickle.dump(pos, f1)
-    pickle.dump(vecs, f1)
+    #pickle.dump(vecs, f1)
+    pickle.dump(0, f1)
 
     f1.close()
