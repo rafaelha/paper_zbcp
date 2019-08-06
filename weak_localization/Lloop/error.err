@@ -1,0 +1,16 @@
+slurmstepd: error: Job 80137 exceeded memory limit (16402084 > 16384000), being killed
+slurmstepd: error: Exceeded job memory limit
+slurmstepd: error: *** JOB 80137 ON node15 CANCELLED AT 2019-08-06T00:25:26 ***
+slurmstepd: error: Exceeded step memory limit at some point.
+slurmstepd: error: Job 80130 exceeded memory limit (16412124 > 16384000), being killed
+slurmstepd: error: *** JOB 80130 ON node14 CANCELLED AT 2019-08-06T00:25:56 ***
+slurmstepd: error: Exceeded step memory limit at some point.
+slurmstepd: error: Exceeded job memory limit
+slurmstepd: error: Job 80124 exceeded memory limit (16389832 > 16384000), being killed
+slurmstepd: error: Exceeded job memory limit
+slurmstepd: error: *** JOB 80131 ON node14 CANCELLED AT 2019-08-06T00:26:26 ***
+slurmstepd: error: Exceeded step memory limit at some point.
+08-06T00:26:26 ***
+slurmstepd: error: Exceeded job memory limit
+slurmstepd: error: Exceeded step memory limit at some point.
+slurmstepd: error: Exceeded job memory limit at some point.
