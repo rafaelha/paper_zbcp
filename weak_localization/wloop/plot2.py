@@ -55,7 +55,7 @@ for f in files:
     except EOFError:
         reader.close()
 
-W_list( dict.fromkeys(W_list) )
+W_list = list( dict.fromkeys(W_list) )
 
 for W in W_list:
         count = 0
@@ -79,12 +79,12 @@ for W in W_list:
                     duration += pickle.load(reader)
                     mu = pickle.load(reader)
 
-                    en2 += pickle.load(reader)
+                    en2 = pickle.load(reader)
 
-                    N2 += pickle.load(reader)
-                    Ree2 += pickle.load(reader)
-                    Reh2 += pickle.load(reader)
-                    G2 += pickle.load(reader)
+                    N2 = pickle.load(reader)
+                    Ree2 = pickle.load(reader)
+                    Reh2 = pickle.load(reader)
+                    G2 = pickle.load(reader)
 
                     Bx = pickle.load(reader)
                     gap = pickle.load(reader)
@@ -124,5 +124,5 @@ for W in W_list:
         plt.title('$L_x=$'+str(Lx)+', $L_y=$'+str(Ly)+', $L_z=$'+str(Lz)\
                   +', W='+str(round(W*1000))+'meV, $\Delta=$'+str(np.round(delta*1e6,1))+'$\mu$eV, $\mu$='+str(mu*1000)+'meV, $B_1$='+str(B1)+', t='\
                   +str(np.round(duration))+'s')
-        plt.savefig('fig_avg_cond_fold'+str(W)+'pdf')
+        plt.savefig('fig_avg_cond_fold'+str(W)+'.pdf')
 
