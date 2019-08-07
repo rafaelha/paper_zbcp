@@ -35,7 +35,7 @@ M2 = -13.5
 B1 = 0
 
 # Magnetic field
-Bx = 0.035 
+Bx = 0.035
 ggap = 0.035
 g = 1
 mu_local =-28e-3 # local chemical potential to push magnetic ggap to fermi level
@@ -52,9 +52,9 @@ jx[3,0] = -Bx**3 / ggap**2
 delta = 0.0001 #0.00018*0.5 # SC order parameter (real)
 phi = np.pi
 mu = (C0 - C1 * M0 / M1) #- 7e-3# tune chem pot to Dirac nodes
-W = 0.05 # disorder strength
+W = 0.0485 # disorder strength
 Lx = 15
-Ly = 600
+Ly = 800
 Lz = 15
 
 xdir = 0 #set direction of transport to one
@@ -351,11 +351,11 @@ def start(filename, rg):
     save(filename, duration, en, N, Ree, Reh, G)
 
 if __name__ == '__main__':
-    L_list =  np.tile(np.array([900,1000, 1200, 1400]),2)
-    Ly = L_list[int(sys.argv[1])]
-    seed = -1#int(sys.argv[1]) + 100
-    #np.random.seed(seed)
-    rg = np.sort(np.block([np.linspace(0,110e-6,30)]))
+    W_list =  np.array([45, 40, 38, 36, 34, 32, 30, 28, 26, 24, 22, 20, 18, 16])*0.001
+    W = W_list[int(sys.argv[1])]
+    seed = 1#int(sys.argv[1]) + 100
+    np.random.seed(seed)
+    rg = np.sort(np.block([np.linspace(0,100e-6,25)]))
     loop(rg)
     """
     start_time = time.time()
