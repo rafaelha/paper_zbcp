@@ -1,0 +1,11 @@
+slurmstepd: error: *** JOB 80290 ON node20 CANCELLED AT 2019-08-06T23:23:20 ***
+slurmstepd: error: *** JOB 80291 ON node20 CANCELLED AT 2019-08-06T23:23:20 ***
+slurmstepd: error: *** JOB 80292 ON node20 CANCELLED AT 2019-08-06T23:23:20 ***
+slurmstepd: error: *** JOB 80307 ON node17 CANCELLED AT 2019-08-06T23:23:20 ***
+slurmstepd: error: *** JOB 80311 ON node44 CANCELLED AT 2019-08-06T23:23:20 ***
+slurmstepd: error: *** JOB 80299 ON node15 CANCELLED AT 2019-08-06T23:23:20 ***
+slurmstepd: error: *** JOB 80300 ON node15 CANCELLED AT 2019-08-06T23:23:20 ***
+slurmstepd: error: *** JOB 80298 ON node14 CANCELLED AT 2019-08-06T23:23:20 ***
+slurmstepd: error: *** JOB 80293 ON node01 CANCELLED AT 2019-08-06T23:23:21 ***
+slurmstepd: error: *** JOB 80294 ON node01 CANCELLED AT 2019-08-06T23:23:21 ***
+slurmstepd: error: *** JOB 80295 ON node04 CANCELLED AT 2019-08-06T23:23:21 ***
