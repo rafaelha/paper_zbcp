@@ -74,7 +74,7 @@ ind = np.argsort(en)
 en = en[ind]
 G = np.block([G,G[cond]])[ind]
 print('Realizations: '+str(count))
-print('duration='+str(duration)+'s')
+print('duration='+str(duration/3600)+'h')
 plt.ion()
 plt.figure()
 plt.plot(en, G)
