@@ -317,7 +317,7 @@ if __name__ == '__main__':
                    np.linspace(20,100,45)[1:],
                    np.linspace(100,300,50)[1:]])*1e-6
     """
-    rg = np.linspace(-300,300,300)
+    rg = np.linspace(-300,300,300)*1e-6
     plt.close('all')
     start_time = time.time()
     sys, lead0, lead1 = build_sys()
