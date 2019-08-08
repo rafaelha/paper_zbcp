@@ -100,7 +100,7 @@ for T in temps:
     plt.plot(x, broaden(T), label=str(T)+'K')
 plt.xlabel('Bias in $\mu$eV')
 plt.ylabel('Conductance <G> ('+str(count)+' realizations)')
-plt.title('$L_x=$'+str(Lx)+', $L_y=$'+str(Ly)+', $L_z=$'+str(Lz)\
+plt.title('$L_x=$'+str(Lx)+', $L_y=$'+str(Ly)\
           +', W='+str(round(W*1000))+'meV, $\Delta=$'+str(np.round(delta*1e6,1))+'$\mu$eV, $\mu$='+str(mu*1000)+'meV, $B_1$='+str(B1)+', t='\
           +str(np.round(duration))+'s')
 #plt.xlim((-20,20))
