@@ -22,7 +22,7 @@ def get_size():
 
 l = get_size()
 
-count = 0
+count = 1
 duration = 0
 
 en = np.zeros(l)
@@ -43,14 +43,13 @@ for f in files:
             duration += pickle.load(reader)
             mu = pickle.load(reader)
 
-            enr = pickle.load(reader)
-            en += enr
+            en = pickle.load(reader)
 
             N += pickle.load(reader)
             Ree += pickle.load(reader)
             Reh += pickle.load(reader)
-            Gr = pickle.load(reader)
-            G += Gr
+            G += pickle.load(reader)
+
             Bx = pickle.load(reader)
             gap = pickle.load(reader)
             g = pickle.load(reader)
@@ -58,42 +57,52 @@ for f in files:
             B1 = pickle.load(reader)
             seed = pickle.load(reader)
 
-
-            """
-            plt.figure()
-            plt.plot(enr, Gr, label='G')
-            plt.xlabel('Bias in $\mu$eV')
-            plt.ylabel('Conductance <G> ('+str(count)+' realizations)')
-            plt.title('$L_x=$'+str(Lx)+', $L_y=$'+str(Ly)+', $L_z=$'+str(Lz)\
-                            +', W='+str(round(W*1000))+'meV, $\Delta=$'+str(np.round(delta*1e6,1))+'$\mu$eV, $\mu$='+str(mu*1000)+'meV, $B_1$='+str(B1)+', t='\
-                            +str(np.round(duration))+'s')
-            plt.savefig('fig/fig_avg_cond_'+str(count)+'.pdf')
-            plt.close()
-            """
-            count += 1
     except EOFError:
         reader.close()
 
-en = en / count * 1e6
+en = en / count
 Reh = Reh / count
 Ree = Ree / count
 N = N / count
 G = G / count
 duration /= count
 
+cond = np.logical_and(en<=delta, en>=-delta)
+en = np.block([en, -en[cond]])  * 1e6
+ind = np.argsort(en)
+en = en[ind]
+G = np.block([G,G[cond]])[ind]
+
+
+
+res = 10000
+x = np.linspace(np.min(en), np.max(en), res)
+y = np.interp(x, en, G)
+
+k = 8.617333262145/1e2 #mueV/(mK) 
+
+def broaden(T=20):
+    sech = 1/(4*k*T)/np.cosh(x/(2*k*T))**2*(x[1]-x[0])
+    yt = np.convolve(y, sech, 'same')
+    return yt
+
+
 print('Realizations: '+str(count))
 print('duration='+str(duration)+'s')
+
+plt.rcParams["image.cmap"] = "Set1"
+
 plt.ion()
 plt.figure()
-plt.plot(en, G, label='G')
-plt.plot(en, N, '-.', label='N')
-plt.plot(en, Reh, '-.', label='Reh')
-plt.plot(en, Ree, '-.', label='Ree')
-plt.legend()
+plt.plot(x, y, label='0K')
+temps = [20, 30, 40, 50, 200, 400]
+for T in temps:
+    plt.plot(x, broaden(T), label=str(T)+'K')
 plt.xlabel('Bias in $\mu$eV')
 plt.ylabel('Conductance <G> ('+str(count)+' realizations)')
 plt.title('$L_x=$'+str(Lx)+', $L_y=$'+str(Ly)+', $L_z=$'+str(Lz)\
           +', W='+str(round(W*1000))+'meV, $\Delta=$'+str(np.round(delta*1e6,1))+'$\mu$eV, $\mu$='+str(mu*1000)+'meV, $B_1$='+str(B1)+', t='\
           +str(np.round(duration))+'s')
-plt.savefig('fig_avg_cond.pdf')
+#plt.xlim((-20,20))
+plt.savefig('fig_avg_cond_fold.pdf')
 
