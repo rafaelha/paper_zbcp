@@ -57,7 +57,7 @@ phi = np.pi
 mu = (C0 - C1 * M0 / M1) #- 7e-3# tune chem pot to Dirac nodes
 W = 0.0 # disorder strength
 m=0#0.006
-Lx = 12
+Lx = 22
 Ly = 7
 
 xdir = 0 #set direction of transport to one
