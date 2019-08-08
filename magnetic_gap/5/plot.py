@@ -60,6 +60,7 @@ for f in files:
             seed = pickle.load(reader)
 
             dcount += 1
+            """
             plt.figure()
             cond = np.logical_and(en<=delta, en>=-delta)
             en2 = np.block([en, -en[cond]])  * 1e6
@@ -71,6 +72,7 @@ for f in files:
             plt.ylabel('Conductance <G> ('+str(count)+' realizations)')
             plt.savefig('fig/'+str(dcount)+'.pdf')
             plt.close()
+            """
 
     except EOFError:
         reader.close()
@@ -118,6 +120,6 @@ plt.ylabel('Conductance <G> ('+str(count)+' realizations)')
 plt.title('$L_x=$'+str(Lx)+', $L_y=$'+str(Ly)\
           +', W='+str(round(W*1000))+'meV, $\Delta=$'+str(np.round(delta*1e6,1))+'$\mu$eV, $\mu$='+str(mu*1000)+'meV, $B_1$='+str(B1)+', t='\
           +str(np.round(duration))+'s')
-#plt.xlim((-20,20))
+plt.xlim((-200,200))
 plt.savefig('fig_avg_cond_fold.pdf')
 

@@ -57,8 +57,8 @@ phi = np.pi
 mu = (C0 - C1 * M0 / M1) #- 7e-3# tune chem pot to Dirac nodes
 W = 0.0 # disorder strength
 m=0#0.006
-Lx = 17
-Ly = 5
+Lx = 10
+Ly = 7
 
 xdir = 0 #set direction of transport to one
 ydir = 1
@@ -312,9 +312,9 @@ if __name__ == '__main__':
     kz=bz[r]
     seed = -1
     start_time = time.time()
-    rg = np.block([np.linspace(-200,-100,10)[:-1], np.linspace(0,20,35),
-                   np.linspace(20,100,15)[1:],
-                   np.linspace(100,200,10)[1:]])*1e-6
+    rg = np.block([np.linspace(-300,-100,50)[:-1], np.linspace(0,20,55),
+                   np.linspace(20,100,45)[1:],
+                   np.linspace(100,300,50)[1:]])*1e-6
     plt.close('all')
     start_time = time.time()
     sys, lead0, lead1 = build_sys()
@@ -326,4 +326,3 @@ if __name__ == '__main__':
     save(str(r)+'.pickle', duration, en, N, Ree, Reh, G)
     #plt.savefig('Lz_%s.pdf' % Lz)
     #plt.close()
-
