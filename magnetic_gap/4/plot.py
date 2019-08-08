@@ -22,7 +22,8 @@ def get_size():
 
 l = get_size()
 
-count = 1
+count = 0
+dcount = 0
 duration = 0
 
 en = np.zeros(l)
@@ -48,7 +49,8 @@ for f in files:
             N += pickle.load(reader)
             Ree += pickle.load(reader)
             Reh += pickle.load(reader)
-            G += pickle.load(reader)
+            G2 = pickle.load(reader)
+            G += G2
 
             Bx = pickle.load(reader)
             gap = pickle.load(reader)
@@ -56,6 +58,19 @@ for f in files:
             mu_local = pickle.load(reader)
             B1 = pickle.load(reader)
             seed = pickle.load(reader)
+
+            dcount += 1
+            plt.figure()
+            cond = np.logical_and(en<=delta, en>=-delta)
+            en2 = np.block([en, -en[cond]])  * 1e6
+            ind = np.argsort(en2)
+            en2 = en2[ind]
+            G2 = np.block([G2,G2[cond]])[ind]
+            plt.plot(en2, G2)
+            plt.xlabel('Bias in $\mu$eV')
+            plt.ylabel('Conductance <G> ('+str(count)+' realizations)')
+            plt.savefig(str(dcount)+'.pdf')
+            plt.close()
 
     except EOFError:
         reader.close()
@@ -65,7 +80,7 @@ Reh = Reh / count
 Ree = Ree / count
 N = N / count
 G = G / count
-duration /= count
+duration /= dcount
 
 cond = np.logical_and(en<=delta, en>=-delta)
 en = np.block([en, -en[cond]])  * 1e6
