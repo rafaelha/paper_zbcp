@@ -61,7 +61,6 @@ for f in files:
             seed = pickle.load(reader)
 
             dcount += 1
-            """
             plt.figure()
             cond = np.logical_and(en<=delta, en>=-delta)
             en2 = np.block([en, -en[cond]])  * 1e6
@@ -73,7 +72,6 @@ for f in files:
             plt.ylabel('Conductance <G> ('+str(count)+' realizations)')
             plt.savefig('fig/'+str(dcount)+'.pdf')
             plt.close()
-            """
 
     except EOFError:
         reader.close()
