@@ -75,11 +75,11 @@ for f in files:
     except EOFError:
         reader.close()
 
-en = en / count
-Reh = Reh / count
-Ree = Ree / count
-N = N / count
-G = G / count
+en = en
+Reh = Reh
+Ree = Ree
+N = N
+G = G
 duration /= dcount
 
 cond = np.logical_and(en<=delta, en>=-delta)
