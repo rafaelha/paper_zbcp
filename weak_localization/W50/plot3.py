@@ -43,12 +43,14 @@ for f in files:
             duration += pickle.load(reader)
             mu = pickle.load(reader)
 
-            en += pickle.load(reader)
+            en2 = pickle.load(reader)
+            en += en2
 
             N += pickle.load(reader)
             Ree += pickle.load(reader)
             Reh += pickle.load(reader)
-            G += pickle.load(reader)
+            G2 = pickle.load(reader)
+            G += G2
 
             Bx = pickle.load(reader)
             gap = pickle.load(reader)
@@ -56,7 +58,10 @@ for f in files:
             mu_local = pickle.load(reader)
             B1 = pickle.load(reader)
             seed = pickle.load(reader)
-
+            plt.figure()
+            plt.plot(en2, G2)
+            plt.savefig(str(count)+'.pdf')
+            plt.close()
             count += 1
     except EOFError:
         reader.close()
