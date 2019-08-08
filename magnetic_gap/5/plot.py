@@ -46,7 +46,8 @@ for f in files:
 
             en = pickle.load(reader)
 
-            N += pickle.load(reader)
+            N2 = pickle.load(reader)
+            N += N2
             Ree += pickle.load(reader)
             Reh += pickle.load(reader)
             G2 = pickle.load(reader)
