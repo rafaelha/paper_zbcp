@@ -33,7 +33,7 @@ Ree = np.zeros(l)
 N = np.zeros(l)
 G = np.zeros(l)
 
-pdf = PdfPages('fig/separate.pdf')
+pdf = PdfPages('fig_separate.pdf')
 for f in files:
     reader = open(f,'rb')
 
