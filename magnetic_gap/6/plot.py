@@ -4,6 +4,7 @@ import pickle
 import numpy as np
 import matplotlib.pyplot as plt
 import glob
+from matplotlib.backends.backend_pdf import PdfPages
 
 files = glob.glob('*.pickle')
 
@@ -31,6 +32,8 @@ Reh = np.zeros(l)
 Ree = np.zeros(l)
 N = np.zeros(l)
 G = np.zeros(l)
+
+pdf = PdfPages('fig/separate.pdf')
 for f in files:
     reader = open(f,'rb')
 
@@ -61,7 +64,6 @@ for f in files:
 
         dcount += 1
         print(dcount)
-        print(Lx)
         plt.figure()
         cond = np.logical_and(en<=delta, en>=-delta)
         en2 = np.block([en, -en[cond]])  * 1e6
@@ -71,12 +73,16 @@ for f in files:
         plt.plot(en2, G2)
         plt.xlabel('Bias in $\mu$eV')
         plt.ylabel('Conductance <G> ('+str(count)+' realizations)')
-        plt.savefig('fig/'+str(dcount)+'.pdf')
+        plt.title('k='+str(Lz))
+        pdf.savefig()
         plt.close()
+
+        reader.close()
 
     except EOFError:
         reader.close()
 
+pdf.close()
 en = en
 Reh = Reh
 Ree = Ree
