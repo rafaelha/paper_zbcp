@@ -139,7 +139,7 @@ plt.title('$L_x=$'+str(Lx)+', $L_y=$'+str(Ly)\
 
 ax = plt.gca()
 i = len(colors)-1
-for T in np.flip(temps):
+for T in np.flip(temps,0):
     ax.add_patch(Rectangle((-1.75*k*T, -1), 3.5*k*T,
                            np.max(y)*2,alpha=0.1,fc=colors[i],lw=None))
     i -= 1
