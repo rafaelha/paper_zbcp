@@ -351,7 +351,7 @@ def start(filename, rg):
     save(filename, duration, en, N, Ree, Reh, G)
 
 if __name__ == '__main__':
-    seed = int(sys.argv[1])
+    seed = int(sys.argv[1]) + 100
     np.random.seed(seed)
     rg = np.sort(np.block([np.linspace(-200e-6,-100e-6,25)[:-1], np.linspace(0,100e-6,50), np.linspace(100e-6,200e-6,25)[1:]]))
     loop(rg)
