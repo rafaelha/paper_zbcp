@@ -35,7 +35,7 @@ M2 = -13.5
 B1 = 0
 
 # Magnetic field
-Bx = 0.035 
+Bx = 0.035
 ggap = 0.035
 g = 1
 mu_local =-28e-3 # local chemical potential to push magnetic ggap to fermi level
@@ -52,7 +52,7 @@ jx[3,0] = -Bx**3 / ggap**2
 delta = 0.0001 #0.00018*0.5 # SC order parameter (real)
 phi = np.pi
 mu = (C0 - C1 * M0 / M1) #- 7e-3# tune chem pot to Dirac nodes
-W = 0.046 # disorder strength
+W = 0.0485 # disorder strength
 Lx = 15
 Ly = 800
 Lz = 15
@@ -330,7 +330,7 @@ def sweep_disorder(max=50e-3, steps=10, energy=0.03e-3):
     save(filename, en[0], ww, N, Ree, Reh, G)
 def loop(rg):
     filename = str(dt.datetime.now()).replace(':','_').replace('.','_').replace(' ','_')+'.pickle'
-    for i in np.arange(100):
+    for i in np.arange(4):
         start(filename, rg)
 def next(name):
     i = 0
@@ -351,9 +351,11 @@ def start(filename, rg):
     save(filename, duration, en, N, Ree, Reh, G)
 
 if __name__ == '__main__':
-    seed = int(sys.argv[1])+100
+    W_list =  np.array([43, 44, 45])*0.001
+    W = W_list[int(sys.argv[1])]
+    seed = 1#int(sys.argv[1]) + 100
     np.random.seed(seed)
-    rg = np.sort(np.block([np.linspace(-200e-6,-100e-6,25)[:-1], np.linspace(0,100e-6,50), np.linspace(100e-6,200e-6,25)[1:]]))
+    rg = np.sort(np.block([np.linspace(0,100e-6,25)]))
     loop(rg)
     """
     start_time = time.time()
