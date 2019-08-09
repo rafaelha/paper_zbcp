@@ -7,7 +7,9 @@ import glob
 from matplotlib.backends.backend_pdf import PdfPages
 
 files = glob.glob('*.pickle')
+ind = np.argsort(np.array([int(files[i].replace(".pickle","")) for i in range(len(files))]))
 
+files = np.array(files)[ind]
 def get_size():
     r = open(files[0], 'rb')
     pickle.load(r)
