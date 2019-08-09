@@ -35,43 +35,44 @@ for f in files:
     reader = open(f,'rb')
 
     try:
-        while True:
-            Lx = pickle.load(reader)
-            Ly = pickle.load(reader)
-            Lz = pickle.load(reader)
-            delta = pickle.load(reader)
-            W = pickle.load(reader)
-            duration += pickle.load(reader)
-            mu = pickle.load(reader)
+        Lx = pickle.load(reader)
+        Ly = pickle.load(reader)
+        Lz = pickle.load(reader)
+        delta = pickle.load(reader)
+        W = pickle.load(reader)
+        duration += pickle.load(reader)
+        mu = pickle.load(reader)
 
-            en = pickle.load(reader)
+        en = pickle.load(reader)
 
-            N2 = pickle.load(reader)
-            N += N2
-            Ree += pickle.load(reader)
-            Reh += pickle.load(reader)
-            G2 = pickle.load(reader)
-            G += G2
+        N2 = pickle.load(reader)
+        N += N2
+        Ree += pickle.load(reader)
+        Reh += pickle.load(reader)
+        G2 = pickle.load(reader)
+        G += G2
 
-            Bx = pickle.load(reader)
-            gap = pickle.load(reader)
-            g = pickle.load(reader)
-            mu_local = pickle.load(reader)
-            B1 = pickle.load(reader)
-            seed = pickle.load(reader)
+        Bx = pickle.load(reader)
+        gap = pickle.load(reader)
+        g = pickle.load(reader)
+        mu_local = pickle.load(reader)
+        B1 = pickle.load(reader)
+        seed = pickle.load(reader)
 
-            dcount += 1
-            plt.figure()
-            cond = np.logical_and(en<=delta, en>=-delta)
-            en2 = np.block([en, -en[cond]])  * 1e6
-            ind = np.argsort(en2)
-            en2 = en2[ind]
-            G2 = np.block([G2,G2[cond]])[ind]
-            plt.plot(en2, G2)
-            plt.xlabel('Bias in $\mu$eV')
-            plt.ylabel('Conductance <G> ('+str(count)+' realizations)')
-            plt.savefig('fig/'+str(dcount)+'.pdf')
-            plt.close()
+        dcount += 1
+        print(dcount)
+        print(Lx)
+        plt.figure()
+        cond = np.logical_and(en<=delta, en>=-delta)
+        en2 = np.block([en, -en[cond]])  * 1e6
+        ind = np.argsort(en2)
+        en2 = en2[ind]
+        G2 = np.block([G2,G2[cond]])[ind]
+        plt.plot(en2, G2)
+        plt.xlabel('Bias in $\mu$eV')
+        plt.ylabel('Conductance <G> ('+str(count)+' realizations)')
+        plt.savefig('fig/'+str(dcount)+'.pdf')
+        plt.close()
 
     except EOFError:
         reader.close()
