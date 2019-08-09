@@ -325,7 +325,6 @@ if __name__ == '__main__':
     duration = time.time()-start_time
     #plotG(en, N, Ree, Reh)
     #plt.savefig(next("cond%s.pdf"))
-    duration = time.time()-start_time
     save(str(r)+'.pickle', duration, en, N, Ree, Reh, G)
     #plt.savefig('Lz_%s.pdf' % Lz)
     #plt.close()
