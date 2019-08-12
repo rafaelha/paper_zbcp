@@ -69,7 +69,6 @@ for f in files:
 
         dcount += 1
         print(dcount)
-        """
         plt.figure()
         cond = np.logical_and(en<=delta, en>=-delta)
         en2 = np.block([en, -en[cond]])  * 1e6
@@ -82,7 +81,6 @@ for f in files:
         plt.title('k='+str(Lz))
         pdf.savefig()
         plt.close()
-        """
 
         reader.close()
 
