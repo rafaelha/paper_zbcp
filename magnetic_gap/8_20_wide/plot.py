@@ -1,5 +1,5 @@
 import matplotlib as mpl
-mpl.use('Agg')
+#mpl.use('Agg')
 import pickle
 import numpy as np
 import matplotlib.pyplot as plt
@@ -69,20 +69,20 @@ for f in files:
 
         dcount += 1
         print(dcount)
-        """
         plt.figure()
         cond = np.logical_and(en<=delta, en>=-delta)
         en2 = np.block([en, -en[cond]])  * 1e6
         ind = np.argsort(en2)
         en2 = en2[ind]
         G2 = np.block([G2,G2[cond]])[ind]
+        N2 = np.block([N2,N2[cond]])[ind]
         plt.plot(en2, G2)
+        plt.plot(en2, N2)
         plt.xlabel('Bias in $\mu$eV')
         plt.ylabel('Conductance <G> ('+str(count)+' realizations)')
         plt.title('k='+str(Lz))
         pdf.savefig()
         plt.close()
-        """
 
         reader.close()
 
@@ -147,7 +147,7 @@ ax.add_patch(Rectangle((-delta*1e6, -1), 2*delta*1e6, np.max(y)*2,alpha=0.05,fc=
     #plt.axvline(x=1.75*k*T)
 
 
-plt.xlim((-200,200))
+plt.xlim((-600,600))
 plt.ylim((0,np.max(y)*1.07))
 plt.legend(frameon=False)
 plt.savefig('fig_avg_cond_fold.pdf')

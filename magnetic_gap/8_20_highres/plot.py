@@ -131,11 +131,9 @@ i = 1
 for T in temps:
     plt.plot(x, broaden(T), label=str(T)+'mK', color=colors[i])
     i += 1
-plt.xlabel('Bias in $\mu$eV')
-plt.ylabel('Conductance <G> ('+str(count)+' realizations)')
-plt.title('$L_x=$'+str(Lx)+', $L_y=$'+str(Ly)\
-          +', W='+str(round(W*1000))+'meV, $\Delta=$'+str(np.round(delta*1e6,1))+'$\mu$eV, $\mu$='+str(mu*1000)+'meV, $B_1$='+str(B1)+', t='\
-          +str(np.round(duration))+'s')
+plt.xlabel('Bias [$\mu$eV]')
+plt.ylabel(r'$\langle G\rangle$ [$e^2/h$]')
+#plt.title('$L_x=$'+str(Lx)+', $L_y=$'+str(Ly)\ +', W='+str(round(W*1000))+'meV, $\Delta=$'+str(np.round(delta*1e6,1))+'$\mu$eV, $\mu$='+str(mu*1000)+'meV, $B_1$='+str(B1)+', t='\ +str(np.round(duration))+'s')
 
 ax = plt.gca()
 i = len(colors)-1
