@@ -1,0 +1,19 @@
+slurmstepd: error: Job 83783 exceeded memory limit (32785436 > 32768000), being killed
+slurmstepd: error: *** JOB 83783 ON node42 CANCELLED AT 2019-08-26T19:10:15 ***
+slurmstepd: error: Exceeded job memory limit
+slurmstepd: error: Job 83780 exceeded memory limit (32779444 > 32768000), being killed
+slurmstepd: error: *** JOB 83780 ON node18 CANCELLED AT 2019-08-26T21:52:23 ***
+slurmstepd: error: Exceeded step memory limit at some point.
+slurmstepd: error: Exceeded job memory limit
+slurmstepd: error: Job 83781 exceeded memory limit (32792388 > 32768000), being killed
+slurmstepd: error: *** JOB 83781 ON node18 CANCELLED AT 2019-08-27T05:30:23 ***
+slurmstepd: error: Exceeded job memory limit
+slurmstepd: error: Exceeded step memory limit at some point.
+slurmstepd: error: Job 83779 exceeded memory limit (32779132 > 32768000), being killed
+slurmstepd: error: *** JOB 83779 ON node01 CANCELLED AT 2019-08-27T07:00:54 ***
+slurmstepd: error: Exceeded job memory limit
+slurmstepd: error: Exceeded step memory limit at some point.
+slurmstepd: error: Job 83777 exceeded memory limit (32825084 > 32768000), being killed
+slurmstepd: error: *** JOB 83777 ON node36 CANCELLED AT 2019-08-27T09:30:16 ***
+slurmstepd: error: Exceeded job memory limit
+slurmstepd: error: Exceeded step memory limit at some point.
