@@ -68,7 +68,7 @@ def onsite(): # onsite energy without gap
     return kr(sigz, t0, s0) * (C0 + 2*C1/az2 + 2*C2/ax2 + 2*C2/ay2 - mu)\
             + kr(sigz, tz, sz) * (M0 + 2*M1/az2 + 2*M2/ax2 + 2*M2/ay2)\
             + kr(sigz, tx, sz) * alpha \
-            + kr(sigz, ty, sz) * beta \
+            + kr(sigz, ty, sz) * beta
 def gap(): # onsite energy with gap
     return kr(sigx, t0, s0) * delta
 def gap_t(x, y, z): # onsite energy with gap
@@ -356,7 +356,7 @@ def start(filename, rg):
     save(filename, duration, en, N, Ree, Reh, G)
 
 if __name__ == '__main__':
-    Wlist = np.linspace(0.001, 0.046, 14)
+    Wlist = np.linspace(0.001, 0.046, 9)
     seed = 1
     idx = int(sys.argv[1])
     W = Wlist[idx]
