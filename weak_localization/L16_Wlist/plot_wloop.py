@@ -103,22 +103,23 @@ for W in W_list:
             except EOFError:
                 reader.close()
 
-        en = en / count * 1e6
+        en = en / count
         Reh = Reh / count
         Ree = Ree / count
         N = N / count
         G = G / count
         duration /= count
 
+        cond = np.logical_and(en<=delta, en>=-delta)
+        en = np.block([en, -en[cond]]) * 1e6
+        ind = np.argsort(en)
+        en = en[ind]
+        G = np.block([G,G[cond]])[ind]
         print('Realizations: '+str(count))
         print('duration='+str(duration)+'s')
         plt.ion()
         plt.figure()
-        plt.plot(np.block([-np.flip(en,0), en]), np.block([np.flip(G,0), G]), label='G')
-        plt.plot(np.block([-np.flip(en,0), en]), np.block([np.flip(N,0), N]), '-.', label='N')
-        plt.plot(np.block([-np.flip(en,0), en]), np.block([np.flip(Reh,0), Reh]), '-.', label='Reh')
-        plt.plot(np.block([-np.flip(en,0), en]), np.block([np.flip(Ree,0), Ree]), '-.', label='Ree')
-        plt.legend()
+        plt.plot(en, G)
         plt.xlabel('Bias in $\mu$eV')
         plt.ylabel('Conductance <G> ('+str(count)+' realizations)')
         plt.title('$L_x=$'+str(Lx)+', $L_y=$'+str(Ly)+', $L_z=$'+str(Lz)\
