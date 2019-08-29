@@ -76,7 +76,7 @@ for W in W_list:
                     Lz = pickle.load(reader)
                     delta = pickle.load(reader)
                     W2 = pickle.load(reader)
-                    duration += pickle.load(reader)
+                    dur = pickle.load(reader)
                     mu = pickle.load(reader)
 
                     en2 = pickle.load(reader)
@@ -100,6 +100,7 @@ for W in W_list:
                             Ree += Ree2
                             Reh += Reh2
                             G += G2
+                            duration += dur
             except EOFError:
                 reader.close()
 
@@ -116,7 +117,7 @@ for W in W_list:
         en = en[ind]
         G = np.block([G,G[cond]])[ind]
         print('Realizations: '+str(count))
-        print('duration='+str(duration)+'s')
+        print('duration='+str(duration/3600)+'h')
         plt.ion()
         plt.figure()
         plt.plot(en, G)
