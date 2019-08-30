@@ -78,6 +78,7 @@ print('duration='+str(duration)+'s')
 plt.ion()
 plt.figure()
 plt.plot(en, G)
+plt.xlim((-130,130))
 plt.xlabel('Bias in $\mu$eV')
 plt.ylabel('Conductance <G> ('+str(count)+' realizations)')
 plt.title('$L_x=$'+str(Lx)+', $L_y=$'+str(Ly)+', $L_z=$'+str(Lz)\
