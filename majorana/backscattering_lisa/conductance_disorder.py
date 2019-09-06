@@ -291,7 +291,7 @@ def next(name):
     return name % i
 if __name__ == '__main__':
     seed = int(sys.argv[1])
-    rg = np.linspace(-230e-6,230e-6,81)
+    rg = np.linspace(-230e-6,230e-6,281)
     #rg = np.sort(np.block([rg, -rg]))
     loop(rg)
 
