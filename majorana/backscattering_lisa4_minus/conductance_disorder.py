@@ -14,13 +14,13 @@ import datetime as dt
 import sys
 import os
 
-s0 = tinyarray.array([[1, 0], [0, 1]]); t0 = s0; sig0 = s0;
-sx = tinyarray.array([[0, 1], [1, 0]]); tx = sx; sigx = sx;
-sy = tinyarray.array([[0, -1j], [1j, 0]]); ty = sy; sigy = sy;
-sz = tinyarray.array([[1, 0], [0, -1]]); tz = sz; sigz = sz;
+s0 = tinyarray.array([[1, 0], [0, 1]]); t0 = 1; sig0 = s0;
+sx = tinyarray.array([[0, 1], [1, 0]]); tx = 1; sigx = sx;
+sy = tinyarray.array([[0, -1j], [1j, 0]]); ty = 1; sigy = sy;
+sz = tinyarray.array([[1, 0], [0, -1]]); tz = -1; sigz = sz;
 
 def kr(a, b, c): # Kronecker product of three matrices
-    return kron(a, kron(b, c))
+    return kron(a, b * c)
 
 ax = 20 #lattice constant Angstrom
 ax2 = ax**2 # material params Cano et al. (Bernevig) PRB 95 161306 (2017)
@@ -118,7 +118,7 @@ def DOS(sys, k=100, range=(-1.5*50e-6,1.5*50e-6), bins=1000, fignum=2): # plot t
     return ev
 
 def build_sys():
-    lat = kw.lattice.general([(ax,0), (0,ay)], norbs=8)
+    lat = kw.lattice.general([(ax,0), (0,ay)], norbs=4)
     sys = kw.Builder()
     # hopping
     hx = kr(sigz, t0, s0) * (-C2)/ax2\
@@ -290,7 +290,7 @@ def next(name):
         i += 1 
     return name % i
 if __name__ == '__main__':
-    seed = int(sys.argv[1])+100
+    seed = int(sys.argv[1])
     rg = np.linspace(-230e-6,230e-6,281)
     #rg = np.sort(np.block([rg, -rg]))
     loop(rg)
