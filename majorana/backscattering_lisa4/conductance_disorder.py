@@ -16,7 +16,7 @@ import os
 
 s0 = tinyarray.array([[1, 0], [0, 1]]); t0 = 1; sig0 = s0;
 sx = tinyarray.array([[0, 1], [1, 0]]); tx = 1; sigx = sx;
-sy = tinyarray.array([[0, -1j], [1j, 0]]); ty = 1y; sigy = sy;
+sy = tinyarray.array([[0, -1j], [1j, 0]]); ty = 1; sigy = sy;
 sz = tinyarray.array([[1, 0], [0, -1]]); tz = 1; sigz = sz;
 
 def kr(a, b, c): # Kronecker product of three matrices
