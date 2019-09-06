@@ -50,7 +50,7 @@ jx[3,0] = -Bx**3 / ggap**2
 #######################################
 ############### parameters ############
 #######################################
-kz=Q*0.0
+kz=Q*0.2
 delta = 100e-6#150*90e-6 # SC order parameter (real)
 phi = np.pi
 mu = (C0 - C1 * M0 / M1) #- 7e-3# tune chem pot to Dirac nodes
