@@ -54,7 +54,7 @@ kz=Q*0.0
 delta = 100e-6#150*90e-6 # SC order parameter (real)
 phi = np.pi
 mu = (C0 - C1 * M0 / M1) #- 7e-3# tune chem pot to Dirac nodes
-W = 0.046 # disorder strength
+W = 0.040 # disorder strength
 m=0#0.006
 Lx =15
 Ly = 800
@@ -291,7 +291,7 @@ def next(name):
     return name % i
 if __name__ == '__main__':
     seed = int(sys.argv[1])
-    rg = np.linspace(-230e-6,230e-6,41)
+    rg = np.linspace(-230e-6,230e-6,81)
     #rg = np.sort(np.block([rg, -rg]))
     loop(rg)
 
